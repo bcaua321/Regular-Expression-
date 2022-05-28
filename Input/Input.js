@@ -12,7 +12,7 @@ function input(input){
   }
 }
 
-let txt = "(ab + c)(ab + (ab + (ab + c)))^+ + (ab)* + a + b + c";
+let txt = "(ab + c)(ab + (ab + (ab + c)))^+ + (ab)* + abc^+";
 
 // Função recursiva para substituir as expressões do tipo (ab + b) e dar o push para expressions
 function replacementParentheses(input){
@@ -42,7 +42,7 @@ function replacementNormal(input){
     return;
   }
 
-  input = input.replace(/exp/ig, "").replace(/\+/ig, "").trim(); 
+  input = input.replace(/exp/ig, "").trim(); 
   expressions.push(input.match(normalExpression)[0]);
   console.log(input);
 
