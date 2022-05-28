@@ -1,5 +1,5 @@
 const expressionParentheses = /(\([\w+\s*\+*\s*\w*\s*]+\)(\^\+)?\*?)/i; // Expressões compostas, ex: (ab + c), (ab + (b + c))*, etc...
-const normalExpression = /(\w+((\^\+)?\*?)\s*)*/i; // Expressões normais, ex: ab*
+const normalExpression = /(\w+((\^\+)?\*?))/i; // Expressões normais, ex: ab*
 
 const expressions = []; // Para guardar as expressões com parenteses
 
@@ -12,7 +12,7 @@ function input(input){
   }
 }
 
-let txt = "(ab + c)(ab + (ab + (ab + c)))^+ + (ab)* + a";
+let txt = "(ab + c)(ab + (ab + (ab + c)))^+ + (ab)* + a + b + c";
 
 // Função recursiva para substituir as expressões do tipo (ab + b) e dar o push para expressions
 function replacementParentheses(input){
@@ -46,7 +46,7 @@ function replacementNormal(input){
   expressions.push(input.match(normalExpression)[0]);
   console.log(input);
 
-  return replacementNormal(input);
+  return replacementNormal(input.replace(normalExpression, ""));
 }
 
 replacementParentheses(txt);
