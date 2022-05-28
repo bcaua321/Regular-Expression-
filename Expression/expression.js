@@ -1,5 +1,7 @@
 const changerOp = /(\s+\+\s+)/i;
 const parentheses = /[\( | \)]/i;
+const repeatOnceOrMore = /(\^\+)/i;
+const repeat = /(\*)$/i;
 
 function MakeExpression(element, operation){
 
