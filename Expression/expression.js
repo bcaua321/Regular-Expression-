@@ -1,7 +1,8 @@
 const changerOp = /(\s+\+\s+)/i;
 const parentheses = /[\( | \)]/i;
 
-function MakeExpression(element, operation){
+function MakeExpression(element, operation)
+{
 
 }
 
@@ -15,4 +16,6 @@ function genExp(word)
     return list_wds
 }
 
-console.log(genExp("a")) 
+
+console.log(genExp("a"))
+
