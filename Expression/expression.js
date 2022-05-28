@@ -1,5 +1,7 @@
-function MakeExpression(element, operation)
-{
+const changerOp = /(\s+\+\s+)/i;
+const parentheses = /[\( | \)]/i;
+
+function MakeExpression(element, operation){
 
 }
 
