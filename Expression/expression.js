@@ -7,9 +7,24 @@ let txt = "(ab + (ab + c))c";
 const replacementParentheses = require('../Input/Input');
 console.log(replacementParentheses(txt));
 
-function MakeExpression(element, operation)
+//Funçao que varre as expressões passa para a determinada função geradora
+function MakeExpression(exp)
 {
+    //lista para guardar as expressoes prontas
+    //percorre a lista e testa os operadores
+    let mounted_exp = []
+    exp.array.forEach(element => {
+        if(testExpression(repeatOnceOrMore,element))
+        {
+            mounted_exp.push(genPlus(element))
+        }
+        else if (testExpression(repeat, element))
+        {
+            mounted_exp.push(genMult(element))
+        }
+    });
 
+    console.log(mounted_exp)
 }
 
 // Gera as cadeias para cada palavra, a, aa,aaa
@@ -24,7 +39,7 @@ function genExp(word)
 
 function genPlus(exp)
 {
-
+    
 }
 
 function genMult(exp)
