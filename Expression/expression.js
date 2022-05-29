@@ -46,6 +46,37 @@ function isRepeat(expression){
 }
 
 
+function clearExpression(input){
+    const expression = []; 
+    let alternator, repeatMore, repeat; 
+
+    testExpression(opChanger, input[0]) ? alternator = true : alternator = false;
+    testExpression(opRepeatOnceOrMore, input[0]) ? repeatMore = true : repeatMore = false; 
+    testExpression(opRepeat, input[0]) ? repeat = true : repeat = false; 
+
+    if(repeatMore){
+        input[0] = input[0].replace(opRepeatOnceOrMore, "").replace(parentheses, "");
+    } else if(repeat){
+        input[0] = input[0].replace(opRepeat, "").replace(parentheses, "");
+    } 
+    
+    if(alternator) {
+        input[0] = input[0].replace(parentheses, "");
+        expression.push(input[0].split(opChanger));
+    }   
+
+    input[0] = input[0].replace(parentheses, "");
+    
+    return {
+        expressison: input[0],
+        alternator: alternator,
+        repeatMore: repeatMore,
+        repeat: repeat,
+        concatenation: !input[1]
+    }
+}
+
+
 function testExpression(regex, exp)
 {
     return regex.test(exp);
