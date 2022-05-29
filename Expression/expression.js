@@ -3,6 +3,7 @@ const parentheses = /[\( | \)]/i;
 const repeatOnceOrMore = /(\^\+)/i;
 const repeat = /(\*)$/i;
 
+
 function MakeExpression(element, operation)
 {
 
@@ -18,6 +19,24 @@ function genExp(word)
     return list_wds
 }
 
+function testExpression(regex, exp)
+{
+    if(regex.test(exp))
+    {
+        return true
+    }
+    return false
+}
+
+function genPlus(exp)
+{
+
+}
+
+function genMult(exp)
+{
+
+}
 
 console.log(genExp("a"))
 
