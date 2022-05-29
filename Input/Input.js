@@ -47,11 +47,12 @@ function replacementNormal(input){
     return -1;
   }
 
+  input = input.replace(/exp/ig, "").trim(); 
+
   if(input.search(normalExpression) == -1){
     return;
   }
 
-  input = input.replace(/exp/ig, "").trim(); 
   let expression = input.match(normalExpression)[0];
   
   if(isCompost(expression)){
