@@ -7,6 +7,8 @@ const expressionsToMake = [];
 let txt = "(ab)*";
 
 const replacementParentheses = require('../Input/Input');
+console.log(replacementParentheses(txt)[0]);
+console.log(clearExpression(replacementParentheses(txt)[0]));
 
 // Gera as cadeias para cada palavra, a, aa,aaa
 function genExp(word)
