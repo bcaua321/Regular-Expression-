@@ -4,7 +4,7 @@ const opRepeat = /(\*)$/i;
 const opChanger = /\s+\+\s+/ig;
 
 const expressionsToMake = [];
-let txt = "(ab)*";
+let txt = "01*";
 
 const replacementParentheses = require('../Input/Input');
 console.log(replacementParentheses(txt)[0]);
@@ -49,32 +49,36 @@ function isRepeat(expression){
 
 
 function clearExpression(input){
-    const expression = []; 
-    let alternator, repeatMore, repeat; 
+    let expression; 
+    let alternator, operator, repeatAll = false; 
 
     testExpression(opChanger, input[0]) ? alternator = true : alternator = false;
-    testExpression(opRepeatOnceOrMore, input[0]) ? repeatMore = true : repeatMore = false; 
-    testExpression(opRepeat, input[0]) ? repeat = true : repeat = false; 
+    testExpression(opRepeatOnceOrMore, input[0]) ? operator = "^+": operator = ""; 
+    testExpression(opRepeat, input[0]) ? operator="*" : operator = ""; 
 
-    if(repeatMore){
+    if(operator == "^+"){
+        if(testExpression(parentheses, input[0])){
+            repeatAll = true;
+        }
+
         input[0] = input[0].replace(opRepeatOnceOrMore, "").replace(parentheses, "");
-    } else if(repeat){
-        input[0] = input[0].replace(opRepeat, "").replace(parentheses, "");
+    } else if(operator == "*"){
+        if(testExpression(parentheses, input[0])){
+            repeatAll = true;
+        }
+        
+        input[0]= input[0].replace(opRepeat, "").replace(parentheses, "");
     } 
     
+    input[0]= input[0].replace(parentheses, "");
     if(alternator) {
-        input[0] = input[0].replace(parentheses, "");
-        expression.push(input[0].split(opChanger));
+        input[0] = input[0].split('+');
     }   
 
-    input[0] = input[0].replace(parentheses, "");
-    
+
     return {
-        expressison: input[0],
-        alternator: alternator,
-        repeatMore: repeatMore,
-        repeat: repeat,
-        concatenation: !input[1]
+        expression: [input[0], input[1]],
+        operator: [operator, repeatAll]
     }
 }
 
