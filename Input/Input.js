@@ -12,7 +12,7 @@ function input(input){
   }
 }
 
-let txt = "(ab + (ab + c))";
+let txt = "(ab + (ab + c))c";
 
 // Função recursiva para substituir as expressões do tipo (ab + b) e dar o push para expressions
 function replacementParentheses(input){
@@ -30,10 +30,11 @@ function replacementParentheses(input){
   let expression = input.match(expressionParentheses)[0];
 
   if(isCompost(expression)){
-    expressionAux.push(expression.replace(compostExpression, ''), 'true')
+    expressionAux.push(expression.replace(compostExpression, ''), true)
   } else {
-    expressionAux.push(expression.replace(compostExpression, ''), 'false')
+    expressionAux.push(expression.replace(compostExpression, ''), false)
   }
+
   // se encontrar expressões do tipo composta, irá dar o push 
   expressions.push(expressionAux);
 
@@ -73,5 +74,6 @@ function isCompost(input){
   return compostExpression.test(input);
 }
 
+console.log("input: " + txt);
 replacementParentheses(txt);
 console.log(expressions);
