@@ -12,7 +12,6 @@ function input(input){
   }
 }
 
-let txt = "(ab + (ab + c))c";
 
 // Função recursiva para substituir as expressões do tipo (ab + b) e dar o push para expressions
 function replacementParentheses(input){
@@ -24,7 +23,7 @@ function replacementParentheses(input){
   // se nao encontrar expressões compostas, chama a função para pegar expressões do tipo ab*, etc...
   if(input.search(expressionParentheses) == -1){
     replacementNormal(input);
-    return;
+    return expressions;
   }
 
   let expression = input.match(expressionParentheses)[0];
@@ -74,6 +73,4 @@ function isCompost(input){
   return compostExpression.test(input);
 }
 
-console.log("input: " + txt);
-replacementParentheses(txt);
-console.log(expressions);
+module.exports = replacementParentheses;

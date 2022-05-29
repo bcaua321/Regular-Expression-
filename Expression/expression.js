@@ -2,9 +2,10 @@ const changerOp = /(\s+\+\s+)/i;
 const parentheses = /[\( | \)]/ig;
 const repeatOnceOrMore = /(\^\+)$/i;
 const repeat = /(\*)$/i;
+let txt = "(ab + (ab + c))c";
 
-// const replacementParentheses = require('./Input/Input');
-
+const replacementParentheses = require('../Input/Input');
+console.log(replacementParentheses(txt));
 
 function MakeExpression(element, operation)
 {
@@ -36,6 +37,7 @@ function isRepeatOnceMore(expression){
         return false;
     }
 
+    //  Irá retirar o sinal, e os parenteses restando as funções
     expression = expression.replace(repeatOnceOrMore, "").replace(parentheses, "");
     console.log(`repetir a expressão ${expression} pelo menos um ou mais vezes`);
 }
@@ -45,6 +47,7 @@ function isRepeat(expression){
         return false;
     }
 
+    //  Irá retirar o sinal, e os parenteses restando as funções
     expression = expression.replace(repeat, "").replace(parentheses, "");
     console.log(`repetir a ${expression} nenhuma ou muita vezes`);
 }
