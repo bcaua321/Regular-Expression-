@@ -6,6 +6,7 @@ let txt = "(ab + (ab + c))c";
 
 const replacementParentheses = require('../Input/Input');
 console.log(replacementParentheses(txt));
+import replacementParentheses from '../Input/Input';
 
 //Funçao que varre as expressões passa para a determinada função geradora
 function MakeExpression(exp)
@@ -71,7 +72,10 @@ function clearExpression(){
 
 }
 
-isRepeatOnceMore("(ab + c)^+");
+//isRepeatOnceMore("(ab + c)^+");
+
+//chama a funçao que monta a expressão
+MakeExpression(replacementParentheses(txt))
 
 function testExpression(regex, exp)
 {

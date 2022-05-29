@@ -14,7 +14,7 @@ function input(input){
 
 
 // Função recursiva para substituir as expressões do tipo (ab + b) e dar o push para expressions
-function replacementParentheses(input){
+export default function replacementParentheses(input){
   let expressionAux = [];
   if(typeof input != 'string'){
     return -1;
