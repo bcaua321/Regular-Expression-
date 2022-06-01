@@ -2,16 +2,18 @@
 <p>Ex: (ab)* -> vazio, ab, abab, ...</p>
 
 <h3> Para rodar: </h3>
-### Clone este repositório
-$ git clone <https://github.com/bcaua321/Regular-Expression->
 
-### Acesse a pasta do projeto no terminal/cmd
-cd Regular-Expression
+<div>
+  <p>Acesse a pasta do projeto no terminal/cmd</p>
+  cd Regular-Expression
+</div>
 
-### Entre no diretório Expression
-cd Expression
+<div>
+  <p> Entre no diretório Expression</p>
+  cd Expression
+</div>
 
-### Execute a aplicação
+<p>Execute a aplicação</p>
 node expression.js ab*
 
 
