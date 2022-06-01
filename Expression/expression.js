@@ -1,7 +1,7 @@
-const parentheses = /[\( | \)]/ig;
-const opRepeatOnceOrMore = /(\^\+)$/i;
-const opRepeat = /(\*)$/i;
-const opChanger = /\s+\+\s+/ig;
+const parentheses = /[\( | \)]/ig; // Regex para parenteses
+const opRepeatOnceOrMore = /(\^\+)$/i; // Regex para o operador ^+
+const opRepeat = /(\*)$/i; // Regex para o operador \*
+const opChanger = /\s+\+\s+/ig; // regex para o operador +
 
 //let input = "(a + b)a*";
 
