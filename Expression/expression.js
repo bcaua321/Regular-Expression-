@@ -3,12 +3,20 @@ const opRepeatOnceOrMore = /(\^\+)$/i;
 const opRepeat = /(\*)$/i;
 const opChanger = /\s+\+\s+/ig;
 
-let txt = "(a + b)a*";
+//let input = "(a + b)a*";
 
 const replacementParentheses = require('../Input/Input');
+const process = require("process")
 
-let replacedExps = replacementParentheses(txt)
+let replacedExps = []
+
+//Pega o input do terminal
+const data = process.argv
+
+replacedExps = replacementParentheses(data[2])
+
 let expressionsToMake = []
+
 
 for (let i = 0; i < replacedExps.length; i++) {
     expressionsToMake.push(clearExpression(replacedExps[i]))
