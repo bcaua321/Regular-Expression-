@@ -3,16 +3,6 @@ const normalExpression = /(\w+((\^\+)?\*?))(\s+\+)?/i; // Expressões normais, e
 const compostExpression = /(\s+\+)$/i; // Para pegar o sinal de ' +' ao final da expressão
 const expressions = []; // Para guardar as expressões com parenteses
 
-// Testes
-function input(input){
-  if(typeof input == 'string'){
-    let a = input.match(expression);
-
-    return a;
-  }
-}
-
-
 // Função recursiva para substituir as expressões do tipo (ab + b) e dar o push para expressions
 function replacementParentheses(input){
   let expressionAux = [];
