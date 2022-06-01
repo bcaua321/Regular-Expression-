@@ -63,6 +63,7 @@ function genExpComposite(keep, listWords)
     return list_wds
 }
 
+// para gerar as cadeias
 function genExp(exp)
 {   
     full_exps = []
@@ -112,6 +113,7 @@ function genExp(exp)
     return full_exps
 }
 
+// Função que retorna um objeto, limpa a expressão, para pegar o operador ao final e tirar os parenteses (caso tenha)
 function clearExpression(input){
     let expression; 
     let alternator, operator, repeatAll = false; 
@@ -145,7 +147,7 @@ function clearExpression(input){
     }
 }
 
-
+// Função de testes para verificar se há símbolos expeciais na expressão
 function testExpression(regex, exp)
 {
     return regex.test(exp);
